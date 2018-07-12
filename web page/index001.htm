@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Web Controller
+    </title>
+</head>
+<body>
+    <h1><b>Welcome</b></h1>
+    <h2>JavaScript new Date()</h2>
+    <p id="demo-date"></p>
+    
+    <style>
+        .button{
+            color: orange;
+            font-style: oblique;
+        }        
+    </style>
+
+    <button class="button" id="left-arrow" onclick="moveLeft()">Left</button>
+    <button class="button" id="right-arrow" onclick="moveRight()">Right</button>
+
+    
+    <p id="demo-button"></p>
+    
+    <script>
+        var d = new Date();
+        document.getElementById("demo-date").innerHTML = d;
+        function moveLeft() {
+            document.getElementById("demo-button").innerHTML = "Step left";
+        }
+        function moveRight() {
+            document.getElementById("demo-button").innerHTML = "Step right";
+        }
+        
+        
+    </script>
+
+
+</body>
+</html>
