@@ -5,11 +5,31 @@
         Web Controller
     </title>
 </head>
-<body>
+<script>
+        direction = "";
+
+        var d = new Date();
+        document.getElementById("demo-date").innerHTML = d;
+        function moveLeft() {
+            document.getElementById("demo-button").innerHTML = "Step left";
+            nocache = "&nocache=" + Math.random() * 1000000;
+            var request = new XMLHttpRequest();
+            direction = "&L1=L";
+            request.open("GET", "ajax_inputs" + direction + nocache, true);
+            request.send(null);
+        }
+        function moveRight() {
+            document.getElementById("demo-button").innerHTML = "Step right";
+            nocache = "&nocache=" + Math.random() * 1000000;
+            var request = new XMLHttpRequest();
+            direction = "&L1=R";
+            request.open("GET", "ajax_inputs" + direction + nocache, true);
+            request.send(null);
+        }
+</script>
+<body onload="GetArduinoIO()">
     <h1><b>Welcome</b></h1>
-    <h2>JavaScript new Date()</h2>
-    <p id="demo-date"></p>
-    
+        
     <style>
         .button{
             color: orange;
@@ -17,24 +37,12 @@
         }        
     </style>
 
-    <button class="button" id="left-arrow" onclick="moveLeft()">Left</button>
-    <button class="button" id="right-arrow" onclick="moveRight()">Right</button>
+    <button type="submit" class="button" id="left-arrow" onclick="moveLeft()">Left</button>
+    <button type="submit" class="button" id="right-arrow" onclick="moveRight()">Right</button>
 
-    
     <p id="demo-button"></p>
     
-    <script>
-        var d = new Date();
-        document.getElementById("demo-date").innerHTML = d;
-        function moveLeft() {
-            document.getElementById("demo-button").innerHTML = "Step left";
-        }
-        function moveRight() {
-            document.getElementById("demo-button").innerHTML = "Step right";
-        }
-        
-        
-    </script>
+    
 
 
 </body>

@@ -28,15 +28,15 @@ void setup() {
     return;
   }
   Serial.println("initialization done.");  
-  myFile = SD.open("index001.htm");
+  myFile = SD.open("index002.htm");
   if (myFile) {
-    Serial.println("index001.htm");
+    Serial.println("index002.htm");
     // read from the file until there's nothing else in it:
     myFile.close();
     
   } else {
     // if the file didn't open, print an error:
-    Serial.println("error opening index001.htm");
+    Serial.println("error opening index002.htm");
   }
   // start the Ethernet connection and the server:
   Ethernet.begin(mac, ip);
@@ -69,7 +69,7 @@ void loop(){
           //client.println("<!DOCTYPE HTML>");
           //client.println("<html>");
 
-          myFile = SD.open("index001.htm");
+          myFile = SD.open("index002.htm");
           while (myFile.available()) {
             client.print((char)myFile.read());
           }
