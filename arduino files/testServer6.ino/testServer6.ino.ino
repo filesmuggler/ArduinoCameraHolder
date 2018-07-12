@@ -74,7 +74,7 @@ void loop(){
   EthernetClient client = server.available();
   
   if (client) {
-    Serial.println("dupa");
+    
     Serial.println("new client");
     // an http request ends with a blank line
     boolean currentLineIsBlank = true;
