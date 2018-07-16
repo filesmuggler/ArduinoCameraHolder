@@ -7,7 +7,9 @@
 /* BUTTON PART */
 char BUTTON_PIN = 2;
 boolean is_Joystick = true;
-boolean previous = false;
+
+int currentState;
+int previousState;
 char reading;           // the current reading from the input pin
 
 /* LCD PART */
@@ -49,13 +51,31 @@ char req_index = 0;              // Index into HTTP_req buffer
 
 int Distance = 0;
 
-void pin_ISR() {
-  
-  reading = digitalRead(BUTTON_PIN);
-  is_Joystick = !is_Joystick;
+boolean currentMode(){
+  // read the pushbutton input pin:
+  currentState = digitalRead(BUTTON_PIN);
+
+  // compare the buttonState to its previous state
+  if (currentState != previousState) {
+    // if the state has changed, increment the counter
+    if (currentState == HIGH) {
+      // if the current state is HIGH then the button went from off to on:
+      // TO DO
+      previousState = currentState;
+      is_Joystick = !is_Joystick;
+      return is_Joystick;
+    } else {
+      // if the current state is LOW then the button went from on to off:
+     // TO DO
+     previousState = currentState;
+     return is_Joystick;
+    }
+    // Delay a little bit to avoid bouncing
+    //delay(50);
+  }
+  // save the current state as the last state, for next time through the loop
   
 }
-
 
 // sets every element of str to 0 (clears array)
 void StrClear(char *str, char length){

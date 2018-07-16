@@ -1,11 +1,9 @@
 #include "Header.h"
 
+
+
 /* SETUP PART */
 void setup() {
-
-  
-  
-
   // Initializing LCD 2x16
   lcd.begin(16,2);  
   lcd.backlight(); 
@@ -39,7 +37,9 @@ void setup() {
     return;
   }
 
-  
+  Ethernet.begin(mac, ip);
+  server.begin();
+  /*
   // Checking file opening
   myFile = SD.open(fileName);
   if (myFile) {
@@ -58,21 +58,21 @@ void setup() {
     lcd.clear();
     return;
   }
-
+*/
   // Attaching interrupt to BUTTON_PIN
   //attachInterrupt(0, pin_ISR, RISING);
   
-  Ethernet.begin(mac, ip);
-  server.begin();
+  
+  
 }
 
 void loop(){
- if(is_Joystick){
+ if(!currentMode()){
     lcd.setCursor(0,0);
     lcd.print("Ethernet mode");
     lcd.setCursor(0,1);
     lcd.print(Ethernet.localIP());
-   
+    
     EthernetClient client = server.available();
     if (client) {
     //Serial.println("test1");
