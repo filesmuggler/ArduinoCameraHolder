@@ -1,7 +1,5 @@
 #include "Header.h"
 
-
-
 /* SETUP PART */
 void setup() {
   // Initializing LCD 2x16
@@ -16,15 +14,19 @@ void setup() {
   lcd.clear();
   
   // Initializing pins for step-motors
+  // Initializing lower step-motor part 1
   pinMode(CW_PLUS_1,OUTPUT);
   pinMode(CLK_PLUS_1,OUTPUT);
-  
+
+  // Initializing upper step-motor part 1
   pinMode(CW_PLUS_2,OUTPUT);
   pinMode(CLK_PLUS_2,OUTPUT);
-  
+
+  // Initializing lower step-motor part 2
   digitalWrite(CW_PLUS_1,LOW);
   digitalWrite(CLK_PLUS_1,LOW);
-  
+
+  // Initializing upper step-motor part 2
   digitalWrite(CW_PLUS_2,LOW);
   digitalWrite(CLK_PLUS_2,LOW);
 
@@ -37,33 +39,9 @@ void setup() {
     return;
   }
 
+  // Initializing Ethernet server
   Ethernet.begin(mac, ip);
-  server.begin();
-  /*
-  // Checking file opening
-  myFile = SD.open(fileName);
-  if (myFile) {
-    //Serial.println("file properly opened");
-    lcd.setCursor(0,0);
-    lcd.print("File opened");
-    delay(1000);
-    lcd.clear();
-    myFile.close();
-  } 
-  else {
-    //Serial.println("error opening file");
-    lcd.setCursor(0,0);
-    lcd.print("File open failed");
-    delay(5000);
-    lcd.clear();
-    return;
-  }
-*/
-  // Attaching interrupt to BUTTON_PIN
-  //attachInterrupt(0, pin_ISR, RISING);
-  
-  
-  
+  server.begin();  
 }
 
 void loop(){
