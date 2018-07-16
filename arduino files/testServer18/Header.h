@@ -52,6 +52,8 @@ char req_index = 0;              // Index into HTTP_req buffer
 /* MOVEMENT PART */
 int Distance = 0;
 int desiredDistance = 1000;
+int delayOn = 100;
+int delayOff = 300;
 
 boolean currentMode(){
   // read the pushbutton input pin:

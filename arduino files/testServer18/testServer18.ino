@@ -102,9 +102,9 @@ void loop(){
               while(Distance<desiredDistance){
                 digitalWrite(CW_PLUS_1,LOW);
                 digitalWrite(CLK_PLUS_1,HIGH);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOn);
                 digitalWrite(CLK_PLUS_1,LOW);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOff);
                 Distance = Distance + 1;
               }
               Distance = 0;
@@ -114,9 +114,9 @@ void loop(){
               while(Distance<desiredDistance){
                 digitalWrite(CW_PLUS_1,HIGH);
                 digitalWrite(CLK_PLUS_1,HIGH);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOn);
                 digitalWrite(CLK_PLUS_1,LOW);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOff);
                 Distance = Distance + 1;
               }
               Distance = 0;
@@ -126,9 +126,9 @@ void loop(){
               while(Distance<desiredDistance){
                 digitalWrite(CW_PLUS_2,HIGH);
                 digitalWrite(CLK_PLUS_2,HIGH);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOn);
                 digitalWrite(CLK_PLUS_2,LOW);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOff);
                 Distance = Distance + 1;
               }
               Distance = 0;
@@ -138,9 +138,9 @@ void loop(){
               while(Distance<desiredDistance){
                 digitalWrite(CW_PLUS_2,LOW);
                 digitalWrite(CLK_PLUS_2,HIGH);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOn);
                 digitalWrite(CLK_PLUS_2,LOW);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOff);
                 Distance = Distance + 1;
               }
               Distance = 0;
@@ -181,50 +181,107 @@ void loop(){
     lcd.print("Joystick mode");
     lcd.setCursor(0,1);
     lcd.print("             ");
-    if(xAxis>700){
+    if(xAxis>700 && yAxis<700 && yAxis>10){
       while(Distance<desiredDistance){
         digitalWrite(CW_PLUS_1,LOW);
         digitalWrite(CLK_PLUS_1,HIGH);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOn);
         digitalWrite(CLK_PLUS_1,LOW);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOff);
         Distance = Distance + 1;
       }
       Distance = 0;
     }
-    else if(xAxis<10){
+    else if(xAxis<50 && yAxis<700 && yAxis>10){
       while(Distance<desiredDistance){
         digitalWrite(CW_PLUS_1,HIGH);
         digitalWrite(CLK_PLUS_1,HIGH);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOn);
         digitalWrite(CLK_PLUS_1,LOW);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOff);
         Distance = Distance + 1;
       }
       Distance = 0;
     }
-    if(yAxis>700){
+    if(yAxis>700 && xAxis<700 && xAxis>10){
       while(Distance<desiredDistance){
         digitalWrite(CW_PLUS_2,HIGH);
         digitalWrite(CLK_PLUS_2,HIGH);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOn);
         digitalWrite(CLK_PLUS_2,LOW);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOff);
         Distance = Distance + 1;
       }
       Distance = 0;
     }
-    else if(yAxis<10){
+    else if(yAxis<50 && xAxis<700 && xAxis>10){
       while(Distance<desiredDistance){
         digitalWrite(CW_PLUS_2,LOW);
         digitalWrite(CLK_PLUS_2,HIGH);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOn);
         digitalWrite(CLK_PLUS_2,LOW);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOff);
         Distance = Distance + 1;
       }
       Distance = 0;
     }
+     else if(xAxis>700 && yAxis>700){
+      while(Distance<desiredDistance){
+        digitalWrite(CW_PLUS_1,LOW);
+        digitalWrite(CW_PLUS_2,HIGH);
+        digitalWrite(CLK_PLUS_1,HIGH);
+        digitalWrite(CLK_PLUS_2,HIGH);
+        delayMicroseconds(delayOn);
+        digitalWrite(CLK_PLUS_1,LOW);
+        digitalWrite(CLK_PLUS_2,LOW);
+        delayMicroseconds(delayOff);
+        Distance = Distance + 1;
+      }
+      Distance = 0;
+    }
+    else if(xAxis<50 && yAxis<50){
+      while(Distance<desiredDistance){
+        digitalWrite(CW_PLUS_1,HIGH);
+        digitalWrite(CW_PLUS_2,LOW);
+        digitalWrite(CLK_PLUS_1,HIGH);
+        digitalWrite(CLK_PLUS_2,HIGH);
+        delayMicroseconds(delayOn);
+        digitalWrite(CLK_PLUS_1,LOW);
+        digitalWrite(CLK_PLUS_2,LOW);
+        delayMicroseconds(delayOff);
+        Distance = Distance + 1;
+      }
+      Distance = 0;
+    }
+    else if(xAxis<50 && yAxis>700){
+      while(Distance<desiredDistance){
+        digitalWrite(CW_PLUS_1,HIGH);
+        digitalWrite(CW_PLUS_2,HIGH);
+        digitalWrite(CLK_PLUS_1,HIGH);
+        digitalWrite(CLK_PLUS_2,HIGH);
+        delayMicroseconds(delayOn);
+        digitalWrite(CLK_PLUS_1,LOW);
+        digitalWrite(CLK_PLUS_2,LOW);
+        delayMicroseconds(delayOff);
+        Distance = Distance + 1;
+      }
+      Distance = 0;
+    }
+    else if(xAxis>700 && yAxis<50){
+      while(Distance<desiredDistance){
+        digitalWrite(CW_PLUS_1,LOW);
+        digitalWrite(CW_PLUS_2,LOW);
+        digitalWrite(CLK_PLUS_1,HIGH);
+        digitalWrite(CLK_PLUS_2,HIGH);
+        delayMicroseconds(delayOn);
+        digitalWrite(CLK_PLUS_1,LOW);
+        digitalWrite(CLK_PLUS_2,LOW);
+        delayMicroseconds(delayOff);
+        Distance = Distance + 1;
+      }
+      Distance = 0;
+    }
+    
   }
 }
 

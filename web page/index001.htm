@@ -8,10 +8,8 @@
 <script>
         direction = "";
 
-        var d = new Date();
-        document.getElementById("demo-date").innerHTML = d;
         function moveLeft() {
-            document.getElementById("demo-button").innerHTML = "Step left";
+            //document.getElementById("demo-button").innerHTML = "Step left";
             nocache = "&nocache=" + Math.random() * 1000000;
             var request = new XMLHttpRequest();
             direction = "&L1=L";
@@ -19,16 +17,32 @@
             request.send(null);
         }
         function moveRight() {
-            document.getElementById("demo-button").innerHTML = "Step right";
+            //document.getElementById("demo-button").innerHTML = "Step right";
             nocache = "&nocache=" + Math.random() * 1000000;
             var request = new XMLHttpRequest();
             direction = "&L1=R";
             request.open("GET", "ajax_inputs" + direction + nocache, true);
             request.send(null);
         }
+        function moveClockwise() {
+            //document.getElementById("demo-button").innerHTML = "Step right";
+            nocache = "&nocache=" + Math.random() * 1000000;
+            var request = new XMLHttpRequest();
+            direction = "&L1=C";
+            request.open("GET", "ajax_inputs" + direction + nocache, true);
+            request.send(null);
+        }
+        function moveCounterClockwise() {
+            //document.getElementById("demo-button").innerHTML = "Step right";
+            nocache = "&nocache=" + Math.random() * 1000000;
+            var request = new XMLHttpRequest();
+            direction = "&L1=A";
+            request.open("GET", "ajax_inputs" + direction + nocache, true);
+            request.send(null);
+        }
 </script>
 <body onload="GetArduinoIO()">
-    <h1><b>Welcome</b></h1>
+    <h1><b>Arduino Camera Holder</b></h1>
         
     <style>
         .button{
@@ -36,14 +50,17 @@
             font-style: oblique;
         }        
     </style>
-
+    LOWER MOTOR
     <button type="submit" class="button" id="left-arrow" onclick="moveLeft()">Left</button>
     <button type="submit" class="button" id="right-arrow" onclick="moveRight()">Right</button>
 
     <p id="demo-button"></p>
     
-    
+    UPPER MOTOR
+    <button type="submit" class="button" id="clock" onclick="moveClockwise()">Clockwise</button>
+    <button type="submit" class="button" id="cclock" onclick="moveCounterClockwise()">Counter-clockwise</button>
 
+    <p id="demo-button"></p>
 
 </body>
 </html>

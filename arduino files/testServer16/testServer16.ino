@@ -102,9 +102,9 @@ void loop(){
               while(Distance<desiredDistance){
                 digitalWrite(CW_PLUS_1,LOW);
                 digitalWrite(CLK_PLUS_1,HIGH);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOn);
                 digitalWrite(CLK_PLUS_1,LOW);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOff);
                 Distance = Distance + 1;
               }
               Distance = 0;
@@ -114,9 +114,9 @@ void loop(){
               while(Distance<desiredDistance){
                 digitalWrite(CW_PLUS_1,HIGH);
                 digitalWrite(CLK_PLUS_1,HIGH);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOn);
                 digitalWrite(CLK_PLUS_1,LOW);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOff);
                 Distance = Distance + 1;
               }
               Distance = 0;
@@ -126,9 +126,9 @@ void loop(){
               while(Distance<desiredDistance){
                 digitalWrite(CW_PLUS_2,HIGH);
                 digitalWrite(CLK_PLUS_2,HIGH);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOn);
                 digitalWrite(CLK_PLUS_2,LOW);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOff);
                 Distance = Distance + 1;
               }
               Distance = 0;
@@ -138,9 +138,9 @@ void loop(){
               while(Distance<desiredDistance){
                 digitalWrite(CW_PLUS_2,LOW);
                 digitalWrite(CLK_PLUS_2,HIGH);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOn);
                 digitalWrite(CLK_PLUS_2,LOW);
-                delayMicroseconds(100);
+                delayMicroseconds(delayOff);
                 Distance = Distance + 1;
               }
               Distance = 0;
@@ -185,9 +185,9 @@ void loop(){
       while(Distance<desiredDistance){
         digitalWrite(CW_PLUS_1,LOW);
         digitalWrite(CLK_PLUS_1,HIGH);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOn);
         digitalWrite(CLK_PLUS_1,LOW);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOff);
         Distance = Distance + 1;
       }
       Distance = 0;
@@ -196,9 +196,9 @@ void loop(){
       while(Distance<desiredDistance){
         digitalWrite(CW_PLUS_1,HIGH);
         digitalWrite(CLK_PLUS_1,HIGH);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOn);
         digitalWrite(CLK_PLUS_1,LOW);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOff);
         Distance = Distance + 1;
       }
       Distance = 0;
@@ -207,9 +207,9 @@ void loop(){
       while(Distance<desiredDistance){
         digitalWrite(CW_PLUS_2,HIGH);
         digitalWrite(CLK_PLUS_2,HIGH);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOn);
         digitalWrite(CLK_PLUS_2,LOW);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOff);
         Distance = Distance + 1;
       }
       Distance = 0;
@@ -218,9 +218,9 @@ void loop(){
       while(Distance<desiredDistance){
         digitalWrite(CW_PLUS_2,LOW);
         digitalWrite(CLK_PLUS_2,HIGH);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOn);
         digitalWrite(CLK_PLUS_2,LOW);
-        delayMicroseconds(100);
+        delayMicroseconds(delayOff);
         Distance = Distance + 1;
       }
       Distance = 0;
